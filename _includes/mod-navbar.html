@@ -1,0 +1,33 @@
+<header class="main-nav">
+
+  <a class="main-nav__logo" href="#">
+    <img src="assets/imgs/page/global/logo/logo.svg" alt="logo">
+  </a>
+
+  <nav class="main-nav__nav">
+    <a class="main-nav__nav__item{% if page.url == site.url %} active{% endif %}" href="{{ base }}">首頁</a>
+
+
+    {% comment %}
+    The code below dynamically generates a sidebar nav of pages with
+    `layout: page` in the front-matter. See readme for usage.
+    {% endcomment %}
+
+    {% assign pages_list = site.pages %}
+    {% for node in pages_list %}
+    {% if node.title != null %}
+    {% if node.layout == "page" %}
+
+
+    <a class="main-nav__nav__item {% if page.url == node.url %}main-nav__nav__item--active{% endif %} {{current-class}}" href="{{ base }}{{ node.url }}">{{ node.title-tc }}</a>
+
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </nav>
+
+  <a class="main-nav__logo" href="#">
+    <img src="assets/imgs/page/global/logo/logo.svg" alt="logo">
+  </a>
+
+</header>
