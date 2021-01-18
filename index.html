@@ -3,8 +3,15 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
+
 ---
 
-{% include mod-hero.html %}
+{% include moduel/hero.html %}
 
-<h1>test</h1>
+<div class="container">
+  {% include moduel/new-project-list.html %}
+
+
+  {% include moduel/new-blog-list.html %}
+
+</div>
