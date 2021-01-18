@@ -23,5 +23,12 @@
 .hero__list__item
   display: inline-block
 
+  &::before
+    content: ''
+    display: block
+    width: 25%
+    height: 3px
+    background: $gray-10
+
   &:nth-last-of-type(even)
     margin: 0 15%
