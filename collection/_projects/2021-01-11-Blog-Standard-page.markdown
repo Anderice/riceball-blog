@@ -2,11 +2,12 @@
 layout: post
 title:  "Blog-Standard-page"
 title-tc: "部落格文章測試頁面"
-date:   2021-01-11
+date:   2021-01-16
 categories: other
 excerpt: 這裡是一篇文章簡單測試這個部落格的功能、紀錄製作上遇到的問題和如何解決。緣起是要做一個網頁設計的專案……
 image: '/assets/imgs/post/2021-01-11-Blog-Standard-page/1.jpg'
 tags: jekyll test a b c
+client: test
 ---
 
 
