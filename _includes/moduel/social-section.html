@@ -1,0 +1,8 @@
+  {% for post in paginator.posts %}
+  <a href="{{ base }}{{ post.url }}"><img src="{{ base }}{{ post.image }}" alt=""></a>
+  <br>
+
+  {{post.title}}
+
+  <br>
+  {% endfor %}

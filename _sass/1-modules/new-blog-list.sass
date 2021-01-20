@@ -1,23 +1,23 @@
-.new-blog-list
-  margin: 0 2rem
-  position: relative
-  display: flex
-  justify-content: center
-  flex-wrap: wrap
-  display: grid
-  grid-gap: 1.1rem
-  grid-template-columns: repeat(auto-fill, minmax(360px,1fr))
-
-.new-blog-list__post-item
+.new-blog-list__wrapper
 	position: relative
-	flex: 1
+	display: flex
+	justify-content: center
+	flex-wrap: wrap
+	display: grid
+	grid-gap: 1.1rem
+	grid-template-columns: repeat(auto-fill, minmax(300px,1fr))
+	margin: 0 1rem
 
-
-	border-radius: 5px
-	margin-left: auto
-	margin-right: auto
+.new-blog-list__item
+	margin: 0 auto
+	position: relative
 	padding-bottom: 4rem
 	margin-bottom: 2rem
 	min-width: 290px
 	max-width: 500px
 	transition: .3s
+
+.post-item__categories
+	position: absolute
+	left: 0
+	bottom: 0

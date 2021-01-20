@@ -4,7 +4,7 @@ title:  "Kramdown-Markdown-Test-Page"
 title-tc: "Markdown 生產器測試文章"
 date:   2020-01-12
 categories: other
-image: '/assets/imgs/page/universal/placeholder/placeholder2.jpg'
+image: 'https://picsum.photos/600/600'
 description: '近年來，在社會設計與通用設計的意識抬頭下，各個場所的設計系統都逐漸得到重視。以近期臺灣設計研究院的校園優化、台灣大學的校徽、陽明交通大學的設計案…等來看，這些設計趨勢開始嘗試與校園做結合近年來，在社會設計與通用設計的意識抬頭下，<br><br>
 各個場所的設計系統都逐漸得到重視。以近期臺灣設計研究院的校園優化、台灣大學的校徽、陽明交通大學的設計案…等來看，這些設計趨勢開始嘗試與校園做結合。'
 excerpt: 近年來，在社會設計與通用設計的意識抬頭下，各個場所的設計系統都逐漸得到重視。台灣大學的校徽、陽明交通大學的設計案…。

@@ -1,40 +1,40 @@
-<div class="title-box">
-  <h2 class="title-box__heading">最新文章</h2>
-  <span class="title-box__subheading">New Post</span>
-</div>
+{% assign location = 'new-blog-list' %}
 
-<div class="new-blog-list">
-  {% for post in paginator.posts %}
-  <div class="new-blog-list__post-item">
-    <a href="{{ base }}{{ post.url }}"><img src="{{ base }}{{ post.image }}" alt=""></a>
-    <div class="post-item__content">
-      <a href="{{ base }}{{ post.url }}">
-        <h2 class="post-item__title">{{ post.title-tc }}</h2>
-      </a>
-      <time class="post-item__date">{{ post.date | date_to_string }}</time>
+<section class="new-blog-list">
 
-      <!-- Excerpt stop point set -->
-      {% if post.content contains '<!--more-->' %}
-      {{ post.content | split:'<!--more-->' | first }}
-      {% else %}
-      <!-- Word maxium -->
-      {{ post.excerpt | strip_html | truncatewords: 26  }}
-      {% endif %}
 
+  <div class="new-blog-list__wrapper" id="{{location}}">
+    {% for post in paginator.posts %}
+    <div class="new-blog-list__item">
+      <a href="{{ post.url }}"><img src="{{ post.image }}" alt=""></a>
+      <div class="post-item__content">
+        <a href="{{ post.url }}">
+          <h2 class="post-item__title">{{ post.title-tc }}</h2>
+        </a>
+        <time class="post-item__date">{{ post.date | date_to_string }}</time>
+
+        <!-- Excerpt stop point set -->
+        {% if post.content contains '<!--more-->' %}
+        {{ post.content | split:'<!--more-->' | first }}
+        {% else %}
+        <!-- Word maxium -->
+        {{ post.excerpt | strip_html | truncatewords: 26  }}
+        {% endif %}
+
+      </div>
+
+      <span class="post-item__categories">分類於——
+        <a href="/categories/#{{post.categories}}{% if post.categories == empty %}uncategorized{% endif %}">
+          {% if post.categories == empty %}未分類{% endif %}
+          {{ post.categories }}
+        </a>
+      </span>
     </div>
 
-    <span class="post-item__categories">分類於——
-      <a href="/categories/#{{post.categories}}{% if post.categories == empty %}uncategorized{% endif %}">
-        {% if post.categories == empty %}未分類{% endif %}
-        {{ post.categories }}
-      </a>
-    </span>
+
+    {% endfor %}
   </div>
-
-
-  {% endfor %}
-</div>
-
+</section>
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
@@ -42,7 +42,7 @@
   <div class="pagination-wrapper">
     <!--  Previous Page -->
     {% if paginator.previous_page %}
-    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一頁</a>
+    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}#{{location}}">&laquo; 上一頁</a>
     {% else %}
     <span class="pagination-item pagination-item--disable">&laquo; 上一頁</span>
     {% endif %}
@@ -60,7 +60,7 @@
 
     <!-- Next Page  -->
     {% if paginator.next_page %}
-    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">下一頁 &raquo;</a>
+    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}#{{location}}">下一頁 &raquo;</a>
     {% else %}
     <span class="pagination-item pagination-item--disable">下一頁 &raquo;</span>
     {% endif %}

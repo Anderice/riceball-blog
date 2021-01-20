@@ -1,7 +1,24 @@
-<header class="main-nav" id="main-nav">
+{% include base/base-prefix.html %}
+
+
+{% if {{include.type}} == 'solid' %}
+{% assign state = 'main-nav--solid' %}
+{% endif %}
+
+{% if {{include.type}} == 'logo-only' %}
+{% assign state = 'main-nav--logo-only' %}
+{% endif %}
+
+
+<header class="main-nav {{state}}" id="main-nav">
 
   <a class="main-nav__logo" href="#">
-    <img src="assets/imgs/page/global/logo/logo.svg" alt="logo">
+    <img src="/assets/imgs/page/global/logo/logo.svg" alt="logo">
+    <div class="logo">
+      Riceball
+      <br>
+      design
+    </div>
   </a>
 
   <nav class="main-nav__nav">
@@ -16,18 +33,24 @@
     {% assign pages_list = site.pages %}
     {% for node in pages_list %}
     {% if node.title != null %}
-    {% if node.layout == "page" %}
+    {% if node.layout == "page" or node.layout == "project-list" %}
+    {% if node.title == "projects" %}
 
-
-    <a class="main-nav__nav__item {% if page.url == node.url %}main-nav__nav__item--active{% endif %} {{current-class}}" href="{{ base }}{{ node.url }}">{{ node.title-tc }}</a>
+    <a class="main-nav__nav__item {% if page.url == node.url %}main-nav__nav__item--active{% endif %} {{current-class}}" href="{{ node.url }}">{{ node.title-tc }}</a>
+    {% break %}
+    {% endif %}
+    <a class="main-nav__nav__item {% if page.url == node.url %}main-nav__nav__item--active{% endif %} {{current-class}}" href="{{ node.url }}">{{ node.title-tc }}</a>
 
     {% endif %}
     {% endif %}
     {% endfor %}
   </nav>
 
-  <a class="main-nav__logo" href="#">
-    <img src="assets/imgs/page/global/logo/logo.svg" alt="logo">
+  <a class="main-nav__search" href="#">
+    <svg height="50" width="50">
+      <circle cx="25" cy="25" r="80" fill="gray" />
+    </svg>
+
   </a>
 
 </header>

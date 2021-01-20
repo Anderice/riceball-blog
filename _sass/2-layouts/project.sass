@@ -1,0 +1,29 @@
+.project-post
+	overflow: auto
+
+.project-sidebar
+	position: relative
+	z-index: 1500
+	float: right
+	height: 100%
+	width: 30%
+
+.project-sidebar__inner
+	height: 100%
+
+.project-post
+	margin: 0 auto
+	padding: 0 1rem
+	max-width: 1000px
+
+	img
+		width: 100%
+
+@media (max-width: $media-lg)
+	.project-sidebar
+		height: auto
+		float: none
+		width: 100%
+
+	.project-sidebar__inner
+		position: static

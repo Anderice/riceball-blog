@@ -1,4 +1,38 @@
 ---
 layout: default
 ---
-{{ content }}
+{% include moduel/navbar.html type="logo-only"%}
+<aside class="project-sidebar">
+  <div class="project-sidebar__inner">
+    {% include moduel/breadcrumbs.html %}
+    <h2>{{page.title}}</h2>
+    <!-- Tags -->
+    {% assign tags =  page.tags%}
+    {% for tag in tags %}
+    /
+    {{ tag }}
+    {% endfor %}
+    <br>
+    <!-- Time -->
+    {{page.date | date_to_string  }}
+
+    <br>
+    <h2>註釋Description</h2>
+    {{page.description}}
+    <br>
+    <h2>工作人員Credit</h2>
+    {{ page.credit }}
+    <br>
+    <a class="btn" href="#">go back</a>
+
+  </div>
+
+</aside>
+
+<article class="project-post">
+  <picture>
+    <source src="https://" type="video/">
+    <img src="{{page.image}}" alt="">
+  </picture>
+  {{ content }}
+</article>

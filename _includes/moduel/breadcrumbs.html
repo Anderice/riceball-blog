@@ -1,0 +1,33 @@
+<nav id="breadcrumbs" class="breadcrumbs-container">
+  <div id="pageProgress" class="page-progress">
+
+  </div>
+  <nav class="breadcrumbs" id="breadcrumbs">
+    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+    <a class="breadcrumbs__back" href="{{ base }}">
+      ←
+    </a>
+    <ul class="breadcrumbs__info">
+      <li class="breadcrumbs__info__item"><a href="/">Home</a></li>
+      <li class="breadcrumbs__info__item">
+        {% for crumb in crumbs offset: 1 %}
+        {% if forloop.last %}
+      </li>
+      <li class="breadcrumbs__info__item">
+        <span>»</span>
+        <br class="breadcrumbs__newline">
+        {{ page.title-tc }}
+        {% else %}
+        <span>»</span>
+        <a href="
+      {% assign crumb_limit = forloop.index | plus: 1 %}
+      {% if page.layout == 'post' %}/categories{% endif %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">
+
+
+          {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+        {% endif %}
+        {% endfor %}
+      </li>
+    </ul>
+  </nav>
+</nav>
