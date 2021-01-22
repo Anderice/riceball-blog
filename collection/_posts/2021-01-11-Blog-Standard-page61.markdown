@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Blog-Standard-page"
-title-tc: "1面試要帶什麼？一分鐘「面試必帶清單」快速檢查"
-date:   2021-01-23
+title-tc: "4部落格文章測試頁面"
+date:   2021-01-20
 categories: other
 excerpt: 這裡是一篇文章簡單測試這個部落格的功能、紀錄製作上遇到的問題和如何解決。緣起是要做一個網頁設計的專案……
 image: 'https://picsum.photos/600/600'

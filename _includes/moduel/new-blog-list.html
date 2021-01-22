@@ -1,50 +1,61 @@
 {% assign location = 'new-blog-list' %}
-<div class="title-box">
-  <span class="title-box__subheading">New Posts</span>
-  <div class="title-box__heading">
-    <h2>最新文章</h2>
-    <a class="btn btn--more" href="/blog">更多文章</a>
-
-  </div>
-
-
-</div>
 
 <section class="new-blog-list">
-  <div class="new-blog-list__wrapper" id="{{location}}">
+  <div class="title-box">
+    <span class="title-box__subheading">New Posts</span>
+    <div class="title-box__heading">
+      <h2>最新文章</h2>
+      <a class="btn btn--more" href="/blog">更多文章</a>
+    </div>
+  </div>
+
+  <div class="new-blog-list__main" id="{{location}}">
     {% for post in paginator.posts %}
-    <div class="new-blog-list__item">
+    <div class="new-blog-list__main__item">
       <a href="{{ post.url }}"><img src="{{ post.image }}" alt=""></a>
-      <div class="post-item__content">
+      <div class="new-blog-list__main__content">
+        <time class="new-blog-list__main__date">{{ post.date | date_to_string }}</time>
+
         <a href="{{ post.url }}">
-          <h2 class="post-item__title">{{ post.title-tc }}</h2>
+          <h2 class="new-blog-list__main__title">{{ post.title-tc }}</h2>
         </a>
-        <time class="post-item__date">{{ post.date | date_to_string }}</time>
 
-        <!-- Excerpt stop point set -->
-        {% if post.content contains '<!--more-->' %}
-        {{ post.content | split:'<!--more-->' | first }}
-        {% else %}
-        <!-- Word maxium -->
-        {{ post.excerpt | strip_html | truncatewords: 26  }}
-        {% endif %}
-
+        <div class="new-blog-list__main__tags">
+          {% for tag in post.tags %}
+          <a href="tags/{{tag}}">
+            #{{tag}}
+          </a>
+          {% endfor %}
+        </div>
+        <p class="new-blog-list__main__paragraph">
+          <!-- Excerpt stop point set -->
+          {% if post.content contains '<!--more-->' %}
+          {{ post.content | split:'<!--more-->' | first }}
+          {% else %}
+          <!-- Word maxium -->
+          {{ post.excerpt | strip_html | truncatewords: 26  }}
+          {% endif %}
+        </p>
       </div>
 
-      <span class="post-item__categories">分類於——
+      <span class="new-blog-list__main__categories">分類於——
         <a href="/categories/#{{post.categories}}{% if post.categories == empty %}uncategorized{% endif %}">
           {% if post.categories == empty %}未分類{% endif %}
           {{ post.categories }}
         </a>
       </span>
     </div>
-
-
     {% endfor %}
+
+
   </div>
+  <ul class="new-blog-list__sub">
+    {% for post in site.posts offset: 3 limit: 6 %}
+    <li class="new-blog-list__sub__item">
+      {{post.title-tc}}
+    </li>
+    {% endfor %}
+
+
+  </ul>
 </section>
-
-
-
-
-{% include moduel/pagination.html location = location %}
