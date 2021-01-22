@@ -1,7 +1,13 @@
 .project-post
 	overflow: auto
 
+.project-post__intro
+
+	img
+		max-height: 500px
+
 .project-sidebar
+
 	position: relative
 	z-index: 1500
 	float: right
@@ -11,19 +17,13 @@
 .project-sidebar__inner
 	height: 100%
 
+
 .project-post
 	margin: 0 auto
+	margin-right: 0
 	padding: 0 1rem
-	max-width: 1000px
-
-	img
-		width: 100%
+	max-width: $project-post-max-width
 
 @media (max-width: $media-lg)
-	.project-sidebar
-		height: auto
-		float: none
-		width: 100%
-
 	.project-sidebar__inner
 		position: static

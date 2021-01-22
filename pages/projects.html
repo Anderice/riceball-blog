@@ -3,22 +3,15 @@ layout: project-list
 title: projects
 title-tc: 作品
 permalink: /projects
+type: all
 
 pagination:
   enabled: true
   collection: 'projects'
-  per_page: 6
+  per_page: 10
 
 ---
 
-{% for post in paginator.posts %}
-    <a href="{{ post.url }}">
-    {{post.title}}
-
-
-    </a>
-<br>
-{% endfor %}
 
 
 {% if paginator.total_pages > 1 %}
@@ -53,94 +46,26 @@ pagination:
   {% endif %}
 
 
+
   <div class="grid" data-colcade="columns: .grid-col, items: .grid-item">
     <!-- columns -->
     <div class="grid-col grid-col--1"></div>
     <div class="grid-col grid-col--2"></div>
     <div class="grid-col grid-col--3"></div>
-    <div class="grid-col grid-col--4"></div>
+
     <!-- items -->
+
+    {% for post in paginator.posts %}
     <div class="grid-item">
-      <img src="https://picsum.photos/400/300" alt="">
+      <img class="grid-item__img" src="{{post.image}}" alt="">
       <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
+        <h2 class="grid-item__content__heading"><a href="{{ post.url }}">{{post.title}}</a></h2>
         <div class="grid-item__content__meta">
           Remove Colcade behavior completely.
         </div>
       </div>
     </div>
 
-    <div class="grid-item">
-      <img src="https://picsum.photos/300/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/500/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/200/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/400/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/300/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/500/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://picsum.photos/200/300" alt="">
-      <div class="grid-item__content">
-        <h2 class="grid-item__content__heading">我是一個專案的title</h2>
-        <div class="grid-item__content__meta">
-          Remove Colcade behavior completely.
-        </div>
-      </div>
-    </div>
-
-
-
-
+    <br>
+    {% endfor %}
   </div>

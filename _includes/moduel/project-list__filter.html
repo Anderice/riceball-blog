@@ -1,0 +1,57 @@
+<ul class="page-intro__filter">
+  <br>
+
+
+
+  {% assign active-class = 'page-intro__filter__item--active' %}
+
+  {% case page.title %}
+  {% when 'projects' %}
+  {% assign active1 = {{active-class}} %}
+  {% when 'graphic' %}
+  {% assign active2 = {{active-class}} %}
+  {% when 'projects' %}
+  {% when 'projects' %}
+
+
+  {% endcase %}
+
+
+  <li class="page-intro__filter__item {{active1}}">
+    <a href="/projects">
+      所有作品
+      <span>
+        (
+        {{site.projects.size}}
+        )
+      </span>
+    </a>
+  </li>
+
+  <li class="page-intro__filter__item {{active2}}">
+
+    <a href="/projects/graphic">
+      平面設計
+      {% assign graphic = 0 %}
+      {% for project in site.projects %}
+
+      {% if project.type == 'graphic' %}
+      {% assign graphic = graphic | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      <span>
+        (
+        {{graphic}}
+        )
+      </span>
+    </a>
+  </li>
+  <li class="page-intro__filter__item {{active3}}">
+    <a href="#">
+      企業識別
+    </a>
+  </li>
+  <li class="page-intro__filter__item {{active4}}"><a href="#">網頁設計</a></li>
+  <li class="page-intro__filter__item {{active5}}"><a href="#">Categeory E</a></li>
+  <li class="page-intro__filter__item {{active6}}"><a href="#">Categeory E</a></li>
+</ul>

@@ -1,14 +1,44 @@
 .footer
-  background: $gray-1
-  margin-top: 10%
-  padding: 1.5rem 3vw
+  width: 100%
+  padding: 3.5rem 3vw
+  background: $gray-3
+
 
 .footer-inner
-  margin: 0 auto
-  max-width: 1600px
+  display: flex
+  width: 100%
 
-.footer-quote
-  max-width: 600px
+.footer-intro
+  max-width: 250px
+
+.footer-intro__title
+  margin: 0
+
+.footer-more
+  max-width: 800px
+  margin: 0
+  padding: 0
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+
+.footer-more__item
+  min-width: 100px
+  display: inline-block
 
 .copyright
 	float: right
+
+
+@media(max-width: $media-lg)
+  .footer-intro
+    max-width: 100%
+
+  .footer-inner
+    flex-direction: column
+    text-align: center
+
+  .footer-intro
+    margin: 0 auto

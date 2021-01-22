@@ -2,37 +2,43 @@
 layout: default
 ---
 {% include moduel/navbar.html type="logo-only"%}
-<aside class="project-sidebar">
-  <div class="project-sidebar__inner">
-    {% include moduel/breadcrumbs.html %}
-    <h2>{{page.title}}</h2>
-    <!-- Tags -->
-    {% assign tags =  page.tags%}
-    {% for tag in tags %}
-    /
-    {{ tag }}
-    {% endfor %}
-    <br>
-    <!-- Time -->
-    {{page.date | date_to_string  }}
+<div class="container container--lg">
 
-    <br>
-    <h2>註釋Description</h2>
-    {{page.description}}
-    <br>
-    <h2>工作人員Credit</h2>
-    {{ page.credit }}
-    <br>
-    <a class="btn" href="#">go back</a>
+  <aside class="project-sidebar">
+    <div class="project-sidebar__inner">
+      {% include moduel/breadcrumbs.html %}
+      <h2>{{page.title}}</h2>
+      <!-- Tags -->
+      {% assign tags =  page.tags%}
+      {% for tag in tags %}
+      /
+      {{ tag }}
+      {% endfor %}
+      <br>
+      <!-- Time -->
+      {{page.date | date_to_string  }}
 
-  </div>
+      <br>
+      <h2>註釋Description</h2>
+      {{page.description}}
+      <br>
+      <h2>工作人員Credit</h2>
+      {{ page.credit }}
+      <br>
+      <a class="btn" href="#">go back</a>
 
-</aside>
+    </div>
 
-<article class="project-post">
-  <picture>
-    <source src="https://" type="video/">
-    <img src="{{page.image}}" alt="">
-  </picture>
-  {{ content }}
-</article>
+  </aside>
+
+  <article class="project-post">
+    <picture class="project-post__intro">
+      <source src="https://" type="video/">
+      <img src="{{page.image}}" alt="">
+    </picture>
+    <div class="project-post__inner">
+      {{ content }}
+
+    </div>
+  </article>
+</div>

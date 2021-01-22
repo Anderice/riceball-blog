@@ -1,8 +1,16 @@
 {% assign location = 'new-blog-list' %}
+<div class="title-box">
+  <span class="title-box__subheading">New Posts</span>
+  <div class="title-box__heading">
+    <h2>最新文章</h2>
+    <a class="btn btn--more" href="/blog">更多文章</a>
+
+  </div>
+
+
+</div>
 
 <section class="new-blog-list">
-
-
   <div class="new-blog-list__wrapper" id="{{location}}">
     {% for post in paginator.posts %}
     <div class="new-blog-list__item">
@@ -36,34 +44,7 @@
   </div>
 </section>
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
 
-  <div class="pagination-wrapper">
-    <!--  Previous Page -->
-    {% if paginator.previous_page %}
-    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}#{{location}}">&laquo; 上一頁</a>
-    {% else %}
-    <span class="pagination-item pagination-item--disable">&laquo; 上一頁</span>
-    {% endif %}
 
-    <!-- Pagination list -->
-    {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-    <em class="pagination-list pagination-selected">{{ page }}</em>
-    {% elsif page == 1 %}
-    <a class="pagination-list" href="{{ '/' | relative_url }}">{{ page }}</a>
-    {% else %}
-    <a class="pagination-list" href="{{ site.paginate_path | relative_url | replace: ':num', page}}">{{ page }}</a>
-    {% endif %}
-    {% endfor %}
 
-    <!-- Next Page  -->
-    {% if paginator.next_page %}
-    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}#{{location}}">下一頁 &raquo;</a>
-    {% else %}
-    <span class="pagination-item pagination-item--disable">下一頁 &raquo;</span>
-    {% endif %}
-  </div>
-  {% endif %}
-</div>
+{% include moduel/pagination.html location = location %}

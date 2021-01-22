@@ -1,8 +1,8 @@
 {% include base/base-prefix.html %}
 
 
-{% if {{include.type}} == 'solid' %}
-{% assign state = 'main-nav--solid' %}
+{% if {{include.type}} == 'post' %}
+{% assign state = 'main-nav--post' %}
 {% endif %}
 
 {% if {{include.type}} == 'logo-only' %}
@@ -33,7 +33,7 @@
     {% assign pages_list = site.pages %}
     {% for node in pages_list %}
     {% if node.title != null %}
-    {% if node.layout == "page" or node.layout == "project-list" %}
+    {% if node.layout == "page" or node.title == "projects" %}
     {% if node.title == "projects" %}
 
     <a class="main-nav__nav__item {% if page.url == node.url %}main-nav__nav__item--active{% endif %} {{current-class}}" href="{{ node.url }}">{{ node.title-tc }}</a>

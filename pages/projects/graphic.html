@@ -1,0 +1,70 @@
+---
+layout:        project-list
+title:         graphic
+title-tc:      平面設計分類
+permalink:     /projects/graphic
+type:          all
+
+pagination:
+  enabled:     true
+  collection:  'projects'
+  per_page:    20
+
+---
+
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+
+  <div class="pagination-wrapper">
+    <!--  Previous Page -->
+    {% if paginator.previous_page %}
+    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一頁</a>
+    {% else %}
+    <span class="pagination-item pagination-item--disable">&laquo; 上一頁</span>
+    {% endif %}
+
+    <!-- Pagination list -->
+    {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <em class="pagination-list pagination-selected">{{ page }}</em>
+    {% elsif page == 1 %}
+    <a class="pagination-list" href="{{ '/' | relative_url }}">{{ page }}</a>
+    {% else %}
+    <a class="pagination-list" href="{{ site.paginate_path | relative_url | replace: ':num', page}}">{{ page }}</a>
+    {% endif %}
+    {% endfor %}
+
+    <!-- Next Page  -->
+    {% if paginator.next_page %}
+    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">下一頁 &raquo;</a>
+    {% else %}
+    <span class="pagination-item pagination-item--disable">下一頁 &raquo;</span>
+    {% endif %}
+  </div>
+  {% endif %}
+
+
+
+  <div class="grid" data-colcade="columns: .grid-col, items: .grid-item">
+    <!-- columns -->
+    <div class="grid-col grid-col--1"></div>
+    <div class="grid-col grid-col--2"></div>
+    <div class="grid-col grid-col--3"></div>
+
+    <!-- items -->
+
+    {% for post in paginator.posts %}
+    <div class="grid-item">
+      <img class="grid-item__img" src="{{post.image}}" alt="">
+      <div class="grid-item__content">
+        <h2 class="grid-item__content__heading"><a href="{{ post.url }}">{{post.title}}</a></h2>
+        <div class="grid-item__content__meta">
+          Remove Colcade behavior completely.
+        </div>
+      </div>
+    </div>
+
+    <br>
+    {% endfor %}
+  </div>

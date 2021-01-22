@@ -1,0 +1,8 @@
+<header class="page-intro">
+  <h2 class="page-intro__heading"> {{include.heading}}</h2>
+
+  {% if page.layout == 'project-list' %}
+  {% include moduel/project-list__filter.html %}
+  {% endif %}
+
+</header>

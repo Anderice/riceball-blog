@@ -7,10 +7,25 @@
 
 
 .new-project-list__item
+  flex: 50%
   display: inline-block
-  margin: 0 1rem
-  width: 100%
-  max-width: 50%
+  margin: 0 auto
+  min-width: 500px
+
+  &:nth-of-type(1)
+    margin-right: .5rem
+
+@media(max-width: $media-lg)
+  body
+    background: red
+
+  .new-project-list__wrapper
+    flex-wrap: wrap
+
+  .new-project-list__item
+    &:nth-of-type(1)
+      margin-right: 0
+
 
 
 

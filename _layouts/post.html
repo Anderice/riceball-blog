@@ -1,4 +1,34 @@
 ---
 layout: default
 ---
-{{ content }}
+{% include moduel/navbar.html type='post' %}
+<div class="container container--lg">
+  <article class="post">
+    <picture class="post__intro-img">
+      <source src="https://" type="video/">
+      <img src="{{page.image}}" alt="">
+    </picture>
+    <h1>{{page.title-tc}}</h1>
+    <div class="post__contents">
+      <aside class="post__aside">
+        <div class="post__aside__inner">
+          時間：{{page.date}}
+          <br>
+          分類：{{page.categories}}
+          <br>
+          {{page.excerpt}}
+        </div>
+      </aside>
+      <div class="post__contents__inner">
+
+        {{ content }}
+
+
+      </div>
+
+    </div>
+
+
+  </article>
+
+</div>

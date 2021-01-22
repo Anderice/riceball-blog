@@ -1,0 +1,46 @@
+.page-intro
+  margin-top: 10rem
+  display: flex
+  justify-content: space-around
+
+
+.page-intro__heading
+  font-size: 6rem
+  margin: 0
+
+.page-intro__filter
+  float: right
+  margin: 0
+  padding: 0
+
+  list-style-type: none
+
+  max-width: 400px
+
+.page-intro__filter__item
+  display: inline-block
+  padding: .5rem
+  a
+    color: $gray-10
+    opacity: .7
+
+  span
+    display: none
+
+.page-intro__filter__item--active
+  text-decoration: underline
+  a
+    opacity: 1
+
+  span
+    display: inline-block
+
+@media(max-width: $media-lg)
+  .page-intro__heading
+    background: red
+    font-size: 3rem
+
+@media(max-width: $media-md)
+  .page-intro
+    flex-direction: column
+    align-items: center
